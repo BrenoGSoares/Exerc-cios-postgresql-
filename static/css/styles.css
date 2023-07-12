@@ -1,0 +1,63 @@
+.title{
+    margin: 5rem 0;
+    text-align: center;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: xx-large;
+}
+
+.subtitle {
+    text-align: center;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size: 1.5rem;
+}
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2rem 2rem;
+}
+
+.table-container {
+    max-width: 1400px;
+    margin: 0 auto; 
+}
+
+.labels{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.labels-item{
+    justify-content: space-between;
+    place-content: center;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    margin: 0 1rem;
+}
+
+.list{
+    display: flex;
+    flex-direction: row;
+}
+.botn{
+    display: flex;
+    margin: 0 auto; 
+    text-decoration: none;
+    font-family: 'Wix Madefor Display', sans-serif;
+    font-size:medium;
+    border:none;
+    border-radius: 0.5rem;
+    transition: 0.5s;
+    padding: 0.2rem;
+    cursor: pointer;
+    color: #fff;
+    background-color:var(--cor-principal);
+}
+
+.btn:hover{
+    background-color: var(--cor-principal-hover);
+}
+

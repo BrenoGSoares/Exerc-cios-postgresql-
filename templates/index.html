@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta Charmanderset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/main.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/styles.css')}}"> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+     
+</head>
+<body>
+    <H1 class="title">CRUD COM POSTGRESQL</H1>
+    <h2 class="subtitle">ADICIONAR NOVO PRODUTO</h2>
+    <div class="container">
+        <form method="POST" action="/">
+            <div class="labels">
+                <input class="labels-item" name='produto' type="text" placeholder="Nome do Produto" required>
+                <input class="labels-item" name='tipo' type="text" placeholder="Tipo do Produto" required >
+                <input class="labels-item" name='fornecedor' type="text" placeholder="Fornecedor" required >
+                <input class="labels-item" name='uf' type="text" placeholder="UF Fornecedor" required >
+                <input class="labels-item" name='estoque' type="number" placeholder="Quantidade em Estoque" required>
+            </div>
+            <div class="button">
+                <input class="botn" name='verifica' type="submit" value ="Adicionar">
+            </div>
+        </form>
+    </div>
+    <div class="text-center table-container">
+        {% if data != '' %}
+        <table class="table table-bordered table-sm table-hover table-condensed">
+            <thead>
+            <tr>
+                <th class="p-1">ID</th>
+                <th  class="p-1">NOME</th>
+                <th  class="p-1">TIPO</th>
+                <th  class="p-1">ID TIPO</th>
+                <th  class="p-1">FORNECEDOR</th>
+                <th  class="p-1">UF</th>
+                <th  class="p-1">QUANTIDADE EM ESTOQUE</th>
+            </tr>
+        </thead>
+        <tbody  >
+            {% for row in data %}
+            <tr>
+                <td class="p-1">{{row[0]}}</td>
+                <td class="p-1">{{row[1]}}</td>
+                <td class="p-1">{{row[2]}}</td>
+                <td class="p-1">{{row[3]}}</td>
+                <td class="p-1">{{row[4]}}</td>
+                <td class="p-1">{{row[5]}}</td>
+                <td class="p-1">{{row[6]}}</td>
+                <td class="p-1">
+                    <form method="POST" action="/">
+                        <button class="botn" type="submit" value="{{row[0]}}" name="delete" >Apagar</button>
+                    </form>
+                </td>
+                <td>
+                    <form method="POST" action="/" class="list">
+                        <input type="text" name="nova_quantidade" placeholder="Nova Quantidade" required>
+                        <button class="botn" type="submit" value="{{row[0]}}" name="editar" >Editar</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+    {% endif %}
+    </div>
+</body>
+</html>
